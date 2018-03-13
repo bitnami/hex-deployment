@@ -9,7 +9,7 @@ IMAGE=gcr.io/bitnami-containers/hex-docs-$K8S_ENV:$REPO_GIT_HASH
 if [ "$SKIP_IMAGE_BUILDING" != true ]; then
   echo "Building the image..."
   # Build the project
-  docker run --rm -v $dir:/app bitnami/node:8 /app/hex-deployment/build.sh
+  docker run --rm -v $(pwd):/app bitnami/node:8 /app/hex-deployment/build.sh
 
   if [ $? -ne 0 ]; then
     echo "There was an error building the project. The deployment has been canceled."
