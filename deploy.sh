@@ -3,7 +3,7 @@
 # Get the current git hash
 K8S_ENV=${K8S_ENV:-development}
 REPO_GIT_HASH=`git rev-parse origin/master`
-IMAGE=gcr.io/bitnami-containers/hex-docs-$K8S_ENV:$REPO_GIT_HASH
+IMAGE=gcr.io/bitnami-images/hex-docs-$K8S_ENV:$REPO_GIT_HASH
 
 # Build the new image to production
 if [ "$SKIP_IMAGE_BUILDING" != true ]; then
