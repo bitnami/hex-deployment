@@ -18,10 +18,23 @@ if [ "$SKIP_IMAGE_BUILDING" != true ]; then
   fi
 
   # Move result
-  mv ../packages/hex-docs/dist ./dist
+  cp ../packages/hex-docs/dist ./dist
 
+  # Build
   docker build -t $IMAGE -f deployment/Dockerfile .
+
+  if [ $? -ne 0 ]; then
+    echo "There was an error building the image. The deployment has been canceled."
+    exit 1
+  fi
+
+  # Pushing
   gcloud docker -- push $IMAGE
+
+  if [ $? -ne 0 ]; then
+    echo "There was an error pushing the image. The deployment has been canceled."
+    exit 1
+  fi
 fi
 
 # Update the deployment!
