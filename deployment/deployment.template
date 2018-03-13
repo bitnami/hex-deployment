@@ -1,0 +1,25 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: hex
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hex
+    spec:
+      containers:
+      - name: hex
+        # The placeholder will be replaced in the deploy.sh!
+        image: PRODUCTION_IMAGE
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 80
+        resources:
+          requests:
+            cpu: 25m
+            memory: 16Mi
+          limits:
+            cpu: 50m
+            memory: 32Mi
