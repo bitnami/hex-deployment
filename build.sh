@@ -11,5 +11,5 @@ curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
 yarn global add lerna && yarn install
 
 # Build the project
-lerna bootstrap --scope @bitnami/hex-docs --npm-client=yarn
+lerna bootstrap --npm-client=yarn
 lerna run --scope @bitnami/hex-docs build
