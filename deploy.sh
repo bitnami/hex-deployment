@@ -36,7 +36,7 @@ fi
 # Update the deployment!
 cp hex-deployment/deployment/deployment.template hex-deployment/deployment/deployment.yaml
 SAFE_IMAGE_URL=$(echo "$IMAGE" | sed -e 's/\//\\\//g')
-sed -i '' -e "s/PRODUCTION_IMAGE/$SAFE_IMAGE_URL/g" hex-deployment/deployment/deployment.yaml
+sed -i -e "s/PRODUCTION_IMAGE/$SAFE_IMAGE_URL/g" hex-deployment/deployment/deployment.yaml
 
 # Apply the changes
 echo "Deploying..."
