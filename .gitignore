@@ -1,2 +1,5 @@
 # Generated template
 deployment/deployment.yaml
+
+# Distributed files for the doc
+dist
