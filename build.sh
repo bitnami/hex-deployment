@@ -14,4 +14,5 @@ cd /app
 yarn global add lerna && yarn install
 
 # Build the project
+lerna bootstrap --scope @bitnami/hex-docs --npm-client=yarn
 lerna run --scope @bitnami/hex-docs build
