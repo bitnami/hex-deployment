@@ -2,11 +2,12 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hex
-  # labels:
-  #   stable.k8s.psg.io/kcm.class: "default"
-  # annotations:
-  #   stable.k8s.psg.io/kcm.provider: route53
-  #   stable.k8s.psg.io/kcm.email: webdev@bitnami.com
+  labels:
+    stable.k8s.psg.io/kcm.class: "default"
+  annotations:
+    kubernetes.io/tls-acme: "true"
+    stable.k8s.psg.io/kcm.provider: route53
+    stable.k8s.psg.io/kcm.email: webdev@bitnami.com
 spec:
   rules:
   - host: design.bitnami.com
@@ -16,8 +17,8 @@ spec:
           serviceName: hex
           servicePort: 80
         path: "/"
-  # tls:
-  # - hosts:
-  #   # auto-certs only support a single host per Ingress
-  #   - design.bitnami.com
-  #   secretName: hex-cert
+  tls:
+  - hosts:
+    # auto-certs only support a single host per Ingress
+    - design.bitnami.com
+    secretName: hex-cert
