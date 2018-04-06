@@ -2,12 +2,8 @@ apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
   name: hex
-  labels:
-    stable.k8s.psg.io/kcm.class: "default"
   annotations:
     kubernetes.io/tls-acme: "true"
-    stable.k8s.psg.io/kcm.provider: route53
-    stable.k8s.psg.io/kcm.email: webdev@bitnami.com
 spec:
   rules:
   - host: design.bitnami.com
