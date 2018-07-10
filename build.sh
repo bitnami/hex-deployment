@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-install_packages apt-transport-https
+install_packages apt-transport-https gnupg
 
 # Install Yarn
 curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add - && \
