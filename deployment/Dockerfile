@@ -1,4 +1,4 @@
-FROM nginx:1.13-alpine
+FROM bitnami/nginx:1.14.0-r43
 LABEL maintainer "Bitnami Team <containers@bitnami.com>"
 
 # Copy the deployment
